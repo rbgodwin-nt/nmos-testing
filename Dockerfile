@@ -24,7 +24,7 @@ RUN apt-get update \
     && tar -xvzf v3.0.7.tar.gz --strip-components=1 \
     && rm v3.0.7.tar.gz \
     && npm config set unsafe-perm true \
-    && npm install -g "git://github.com/AMWA-TV/sdpoker.git#bcp-006-01-rbg" \
+    && npm install -g "https://github.com/AMWA-TV/sdpoker.git#bcp-006-01-rbg" \
     && rm /home/nmos-testing/setup_14.x \
     && apt-get remove -y wget \
     && apt-get clean -y --no-install-recommends \
