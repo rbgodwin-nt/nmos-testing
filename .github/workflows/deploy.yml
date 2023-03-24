@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: name/app
+          images:  ${{ secrets.DOCKER_USERNAME }}/nmos-testing
 
       - name: Set up Docker Buildx
         id: buildx
