@@ -18,8 +18,11 @@ jobs:
         with:
           platforms: all
           
-      - name: Add GITHUB_COMMIT env property with commit short sha
-        run: echo "GITHUB_COMMIT=`echo ${{ github.sha }} | cut -c1-7`" >> $GITHUB_ENV
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: name/app
 
       - name: Set up Docker Buildx
         id: buildx
@@ -36,6 +39,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64
-          build-args: VERSION=${{ github.repository }}:${{ github.ref_name }}@${{ env.GITHUB_COMMIT }}
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/nmos-testing:${{ github.ref_name }}-${{ env.GITHUB_COMMIT }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          version: ${{ steps.meta.outputs.version }}
