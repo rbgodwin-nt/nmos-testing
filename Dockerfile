@@ -4,6 +4,7 @@ WORKDIR /home/nmos-testing
 ARG VERSION
 ENV TOOL_VERSION=$VERSION
 
+
 ADD . .
 
 RUN apt-get update \
