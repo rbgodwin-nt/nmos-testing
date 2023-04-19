@@ -3,6 +3,7 @@ FROM ubuntu:bionic
 WORKDIR /home/nmos-testing
 ARG VERSION
 ENV TOOL_VERSION=$VERSION
+ENV TOOL_VERSION=1.0.0
 
 ADD . .
 
