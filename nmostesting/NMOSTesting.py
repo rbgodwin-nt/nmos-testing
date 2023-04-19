@@ -1117,7 +1117,8 @@ def main(args):
         repo_name = re.sub(r"\.git$", "", re.sub(r"^/", "", urlparse(repo.remotes.origin.url).path))
         repo_branch = repo.active_branch
         repo_commit = repo.git.rev_parse(repo.head.object.hexsha, short=7)
-        TOOL_VERSION = "{}:{}@{}".format(repo_name, repo_branch, repo_commit)
+        repo_tags = repo.git.tag("--points-at", repo.head.object.hexsha)
+        TOOL_VERSION = "{}:{}@{}:{}".format(repo_name, repo_branch, repo_commit, repo_tags)
     except git.exc.InvalidGitRepositoryError:
         TOOL_VERSION = os.getenv('TOOL_VERSION', 'Unknown')
 
