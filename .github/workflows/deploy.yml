@@ -42,6 +42,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags  }}
           labels: ${{ steps.meta.outputs.labels }}
-          version: ${{ steps.meta.outputs.version }}
-          env: 
-            VERSION:${{ steps.meta.outputs.tags  }}
+        env: 
+           VERSION: 2.0
