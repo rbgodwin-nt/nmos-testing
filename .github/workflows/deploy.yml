@@ -21,9 +21,9 @@ jobs:
           images: |
             ${{ secrets.DOCKER_USERNAME }}/nmos-testing
           tags: |
-            type=sha
+            type=sha,prefix=
             type=raw,value=latest,enable={{is_default_branch}}
-            
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2.1.0
         with:
