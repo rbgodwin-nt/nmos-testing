@@ -21,9 +21,7 @@ jobs:
           images: |
             ${{ secrets.DOCKER_USERNAME }}/nmos-testing
           tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=ref, event=push
+            type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Set up QEMU
