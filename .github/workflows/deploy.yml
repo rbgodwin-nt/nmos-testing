@@ -23,6 +23,8 @@ jobs:
           tags: |
             type=sha
             type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest
+            type=raw,value=latest-2
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2.1.0
