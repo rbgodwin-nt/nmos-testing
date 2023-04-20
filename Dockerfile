@@ -36,6 +36,6 @@ ADD .git .git
 VOLUME /config
 
 # ensure entrypoint script is executable
-# RUN chmod +x /home/nmos-testing/run_nmos_testing.sh
+RUN chmod +x /home/nmos-testing/run_nmos_testing.sh
 
 # ENTRYPOINT ["/home/nmos-testing/run_nmos_testing.sh"]
