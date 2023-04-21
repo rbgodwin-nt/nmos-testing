@@ -23,7 +23,7 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/nmos-testing
           tags: |
             # Tag all builds with branch name and sha
-            type=sha,prefix={{ github.ref_name }}-
+            type=sha,prefix=${{ github.ref_name }}-
             # Tag each non-default branch with branch name and latest
             # type=raw,value=latest,prefix={{ github.ref_name }}-,enable={{ is_default_branch }}
             # Tag default branch with latest (no branch name prefix)
